@@ -11,4 +11,19 @@ let correct = $("#corrct");
 let wrong = $("#wrong");
 let timeClock = $("#time-clock");
 
-function 
+function timer(){
+
+}
+
+function writeTrivia(){
+
+}
+
+function scoreBox(){
+
+}
+
+function choiceBtns(){
+
+}
+
