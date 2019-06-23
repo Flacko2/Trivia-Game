@@ -109,6 +109,8 @@ let trivia = [
 console.log(trivia);
 
 let qNum = 0;
+let correctAns = "";
+let choice = "";
 
 const scoreBox = $(".score-box");
 const correct = $("correct");
@@ -119,19 +121,33 @@ const question = $("#question");
 const choices = $("#choices");
 const nextBtn = $("#next-btn");
 
+
 function writeTrivia() {
 
     if (qNum < trivia.length) {
         question.html(trivia[qNum].Question);
         choices.html(trivia[qNum].Choices);
     }
+    correctAns = trivia[qNum].answer;
+    console.log(correctAns);
+}
 
+function answerCheck(Element) {
+    console.log(this);
+}
+
+function answerBtns() {
+    a.setAttribute("onclick", "answerCheck()");
+    b.setAttribute("onclick", "answerCheck()");
+    c.setAttribute("onclick", "answerCheck()");
+    d.setAttribute("onclick", "answerCheck()");
 }
 
 function nextButton() {
     nextBtn.on("click", function () {
         qNum++;
         writeTrivia();
+        answerBtns();
     });
 }
 
