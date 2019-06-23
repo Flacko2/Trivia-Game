@@ -13,7 +13,7 @@ let trivia = [
             "<button id='c'>The Pillar of Autumn</button>",
             "<button id='d'>Prologue</button>"
         ],
-        answer: "b"
+        answer: "c"
     },
     {
         Question: 'What is the Installation number of "The Ark"?',
@@ -33,7 +33,7 @@ let trivia = [
             "<button id='c'>America</button>",
             "<button id='d'>Africa</button>"
         ],
-        answer: "b"
+        answer: "d"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
@@ -43,67 +43,67 @@ let trivia = [
             "<button id='c'>Four</button>",
             "<button id='d'>Five</button>"
         ],
-        answer: "b"
+        answer: "c"
     },
     {
-        Question: 'How many main types of Flood are there in "Halo 3"?',
+        Question: 'What is the purpose of the Halo installations?',
         Choices: [
-            "<button id='a'>a</button>",
-            "<button id='b'>b</button>",
-            "<button id='c'>c</button>",
-            "<button id='d'>d</button>"
+            "<button id='a'>To kill the flood</button>",
+            "<button id='b'>To provide homes to the Forerunners</button>",
+            "<button id='c'>To start the Great Journey</button>",
+            "<button id='d'>To eliminate the Flood's food source (all sentient life)</button>"
+        ],
+        answer: "d"
+    },
+    {
+        Question: 'Who is the monitor of Installation 05?',
+        Choices: [
+            "<button id='a'>2401 Penitent Tangent</button>",
+            "<button id='b'>Medicant Bias</button>",
+            "<button id='c'>343 Guilty Spark</button>",
+            "<button id='d'>Offensive Bias</button>"
+        ],
+        answer: "a"
+    },
+    {
+        Question: ' What is the name of the ship that you use to escape from The Pillar of Autumn in "Halo: Combat Evolved"?',
+        Choices: [
+            "<button id='a'>Longsword</button>",
+            "<button id='b'>Pelican</button>",
+            "<button id='c'>Warthog</button>",
+            "<button id='d'>Spirit Dropship</button>"
         ],
         answer: "b"
     },
     {
-        Question: 'How many main types of Flood are there in "Halo 3"?',
+        Question: 'What is the Arbiter\'s name?',
         Choices: [
-            "<button id='a'>a</button>",
-            "<button id='b'>b</button>",
-            "<button id='c'>c</button>",
-            "<button id='d'>d</button>"
+            "<button id='a'>Igido Nosa Fasu</button>",
+            "<button id='b'>Thel 'Vadam</button>",
+            "<button id='c'>Usze 'Taham</button>",
+            "<button id='d'>Rtas 'Vadum</button>"
         ],
         answer: "b"
     },
     {
-        Question: 'How many main types of Flood are there in "Halo 3"?',
+        Question: 'What is the reason that the Arbiter is punished in the beginning of "Halo 2"?',
         Choices: [
-            "<button id='a'>a</button>",
-            "<button id='b'>b</button>",
-            "<button id='c'>c</button>",
-            "<button id='d'>d</button>"
+            "<button id='a'>Blamed for being a heretic</button>",
+            "<button id='b'>Killed his own men</button>",
+            "<button id='c'>Brought the Master Chief with him</button>",
+            "<button id='d'>Was actually a Grunt</button>"
         ],
-        answer: "b"
+        answer: "a"
     },
     {
-        Question: 'How many main types of Flood are there in "Halo 3"?',
+        Question: '"No, I think we\'re just getting started." This is the last line of which game?',
         Choices: [
-            "<button id='a'>a</button>",
-            "<button id='b'>b</button>",
-            "<button id='c'>c</button>",
-            "<button id='d'>d</button>"
+            "<button id='a'>Halo: Reach</button>",
+            "<button id='b'>Halo 3</button>",
+            "<button id='c'>Halo: Combat Evolved</button>",
+            "<button id='d'>Halo Wars</button>"
         ],
-        answer: "b"
-    },
-    {
-        Question: 'How many main types of Flood are there in "Halo 3"?',
-        Choices: [
-            "<button id='a'>a</button>",
-            "<button id='b'>b</button>",
-            "<button id='c'>c</button>",
-            "<button id='d'>d</button>"
-        ],
-        answer: "b"
-    },
-    {
-        Question: 'How many main types of Flood are there in "Halo 3"?',
-        Choices: [
-            "<button id='a'>a</button>",
-            "<button id='b'>b</button>",
-            "<button id='c'>c</button>",
-            "<button id='d'>d</button>"
-        ],
-        answer: "b"
+        answer: "c"
     }
 ];
 console.log(trivia);
@@ -133,7 +133,7 @@ function writeTrivia() {
     } else {
         question.html("You've completed the quiz! How'd ya do???")
         choices.html("You've gotten " + correctCount + " correct<br>" +
-            "and " + wrongCount + " blasphemies");
+            "and " + wrongCount + " blasphemies to your name");
     }
     correctAns = trivia[qNum].answer;
     console.log(correctAns);
@@ -171,6 +171,7 @@ function answerCheck() {
         nextQuestion();
     } else {
         if (choice === correctAns) {
+            alert("Ahhh yeah, baby! You got it right!");
             correctCount++;
             console.log(correctCount);
             nextQuestion();
@@ -186,6 +187,7 @@ function answerCheck() {
             timer();
         }
         else {
+            alert("Wrong answer... dissapointing");
             wrongCount++;
             console.log(wrongCount);
             nextQuestion();
