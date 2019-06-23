@@ -7,102 +7,102 @@ let trivia = [
     },
     {
         Question: 'What is the first level of "Halo: Combat Evolved" called?',
-        Choices: {
-            a: "343 Guilty Spark",
-            b: "Sierra 117",
-            c: "The Pillar of Autumn",
-            d: "Prologue"
-        },
+        Choices: [
+            "<button id='a'>343 Guilty Spark</button>",
+            "<button id='b'>Sierra 117</button>",
+            "<button id='c'>The Pillar of Autumn</button>",
+            "<button id='d'>Prologue</button>"
+        ],
         answer: "b"
     },
     {
         Question: 'What is the Installation number of "The Ark"?',
-        Choices: {
-            a: "Installation 04",
-            b: "Installation 00",
-            c: "Installation 05",
-            d: "Installation 01"
-        },
+        Choices: [
+            "<button id='a'>Installation 04</button>",
+            "<button id='b'>Installation 00</button>",
+            "<button id='c'>Installation 05</button>",
+            "<button id='d'>Installation 01</button>"
+        ],
         answer: "b"
     },
     {
         Question: 'Where is the portal to "The Ark" located?',
-        Choices: {
-            a: "Europe",
-            b: "Asia",
-            c: "America",
-            d: "Africa"
-        },
+        Choices: [
+            "<button id='a'>Europe</button>",
+            "<button id='b'>Asia</button>",
+            "<button id='c'>America</button>",
+            "<button id='d'>Africa</button>"
+        ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
-        Choices: {
-            a: "Two",
-            b: "Three",
-            c: "Four",
-            d: "Five"
-        },
+        Choices: [
+            "<button id='a'>Two</button>",
+            "<button id='b'>Three</button>",
+            "<button id='c'>Four</button>",
+            "<button id='d'>Five</button>"
+        ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
-        Choices: {
-            a: "Two",
-            b: "Three",
-            c: "Four",
-            d: "Five"
-        },
+        Choices: [
+            "<button id='a'></button>",
+            "<button id='b'></button>",
+            "<button id='c'></button>",
+            "<button id='d'></button>"
+        ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
-        Choices: {
-            a: "Two",
-            b: "Three",
-            c: "Four",
-            d: "Five"
-        },
+        Choices: [
+            "<button id='a'></button>",
+            "<button id='b'></button>",
+            "<button id='c'></button>",
+            "<button id='d'></button>"
+        ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
-        Choices: {
-            a: "Two",
-            b: "Three",
-            c: "Four",
-            d: "Five"
-        },
+        Choices: [
+            "<button id='a'></button>",
+            "<button id='b'></button>",
+            "<button id='c'></button>",
+            "<button id='d'></button>"
+        ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
-        Choices: {
-            a: "Two",
-            b: "Three",
-            c: "Four",
-            d: "Five"
-        },
+        Choices: [
+            "<button id='a'></button>",
+            "<button id='b'></button>",
+            "<button id='c'></button>",
+            "<button id='d'></button>"
+        ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
-        Choices: {
-            a: "Two",
-            b: "Three",
-            c: "Four",
-            d: "Five"
-        },
+        Choices: [
+            "<button id='a'></button>",
+            "<button id='b'></button>",
+            "<button id='c'></button>",
+            "<button id='d'></button>"
+        ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
-        Choices: {
-            a: "Two",
-            b: "Three",
-            c: "Four",
-            d: "Five"
-        },
+        Choices: [
+            "<button id='a'></button>",
+            "<button id='b'></button>",
+            "<button id='c'></button>",
+            "<button id='d'></button>"
+        ],
         answer: "b"
     }
 ];
