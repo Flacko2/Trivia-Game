@@ -48,60 +48,60 @@ let trivia = [
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
         Choices: [
-            "<button id='a'></button>",
-            "<button id='b'></button>",
-            "<button id='c'></button>",
-            "<button id='d'></button>"
+            "<button id='a'>a</button>",
+            "<button id='b'>b</button>",
+            "<button id='c'>c</button>",
+            "<button id='d'>d</button>"
         ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
         Choices: [
-            "<button id='a'></button>",
-            "<button id='b'></button>",
-            "<button id='c'></button>",
-            "<button id='d'></button>"
+            "<button id='a'>a</button>",
+            "<button id='b'>b</button>",
+            "<button id='c'>c</button>",
+            "<button id='d'>d</button>"
         ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
         Choices: [
-            "<button id='a'></button>",
-            "<button id='b'></button>",
-            "<button id='c'></button>",
-            "<button id='d'></button>"
+            "<button id='a'>a</button>",
+            "<button id='b'>b</button>",
+            "<button id='c'>c</button>",
+            "<button id='d'>d</button>"
         ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
         Choices: [
-            "<button id='a'></button>",
-            "<button id='b'></button>",
-            "<button id='c'></button>",
-            "<button id='d'></button>"
+            "<button id='a'>a</button>",
+            "<button id='b'>b</button>",
+            "<button id='c'>c</button>",
+            "<button id='d'>d</button>"
         ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
         Choices: [
-            "<button id='a'></button>",
-            "<button id='b'></button>",
-            "<button id='c'></button>",
-            "<button id='d'></button>"
+            "<button id='a'>a</button>",
+            "<button id='b'>b</button>",
+            "<button id='c'>c</button>",
+            "<button id='d'>d</button>"
         ],
         answer: "b"
     },
     {
         Question: 'How many main types of Flood are there in "Halo 3"?',
         Choices: [
-            "<button id='a'></button>",
-            "<button id='b'></button>",
-            "<button id='c'></button>",
-            "<button id='d'></button>"
+            "<button id='a'>a</button>",
+            "<button id='b'>b</button>",
+            "<button id='c'>c</button>",
+            "<button id='d'>d</button>"
         ],
         answer: "b"
     }
@@ -113,6 +113,7 @@ let correctAns = "";
 let choice = "";
 let correctCount = 0;
 let wrongCount = 0;
+let timeCount;
 
 const scoreBox = $(".score-box");
 const correct = $("correct");
@@ -142,10 +143,12 @@ function answerSelect(x) {
     choice = x;
     console.log(choice);
 }
-
+function resetTimer() {
+    clearInterval(timeCount);
+}
 function timer() {
-    if (qNum !== 0 || qNum < trivia.length) {
-        setTimeout(nextQuestion, 10000);
+    if (qNum !== 0 || qnum < trivia.length) {
+        timeCount = setInterval(answerCheck, 10000);
     }
 }
 
@@ -163,34 +166,46 @@ function nextQuestion() {
     choice = "";
 }
 
+function answerCheck() {
+    if (qNum === 0) {
+        nextQuestion();
+    } else {
+        if (choice === correctAns) {
+            correctCount++;
+            console.log(correctCount);
+            nextQuestion();
+            resetTimer();
+            timer();
+        }
+        else if (choice === "") {
+            alert("Failed to answer... smh");
+            wrongCount++;
+            console.log(wrongCount);
+            nextQuestion();
+            resetTimer();
+            timer();
+        }
+        else {
+            wrongCount++;
+            console.log(wrongCount);
+            nextQuestion();
+            resetTimer();
+            timer();
+        }
+    }
+}
+
 function nextButton() {
     nextBtn.on("click", function () {
-        if (qNum === 0) {
-            nextQuestion();
-        } else {
-            if (choice === correctAns) {
-                correctCount++;
-                console.log(correctCount);
-                nextQuestion();
-                timer();
-            }
-            else if (choice === "") {
-                alert("Please select answer")
-            }
-            else {
-                wrongCount++;
-                console.log(wrongCount);
-                nextQuestion();
-                timer();
-            }
-        }
+        answerCheck();
+        // resetTimer();
+        // timer();
     });
 }
 
 function triviaInit() {
     writeTrivia();
     nextButton();
-    timer();
 }
 
 triviaInit();
