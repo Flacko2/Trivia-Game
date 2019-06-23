@@ -111,6 +111,8 @@ console.log(trivia);
 let qNum = 0;
 let correctAns = "";
 let choice = "";
+let correctCount = 0;
+let wrongCount = 0;
 
 const scoreBox = $(".score-box");
 const correct = $("correct");
@@ -127,33 +129,68 @@ function writeTrivia() {
     if (qNum < trivia.length) {
         question.html(trivia[qNum].Question);
         choices.html(trivia[qNum].Choices);
+    } else {
+        question.html("You've completed the quiz! How'd ya do???")
+        choices.html("You've gotten " + correctCount + " correct<br>" +
+            "and " + wrongCount + " blasphemies");
     }
     correctAns = trivia[qNum].answer;
     console.log(correctAns);
 }
 
-function answerCheck(Element) {
-    console.log(this);
+function answerSelect(x) {
+    choice = x;
+    console.log(choice);
+}
+
+function timer() {
+    if (qNum !== 0 || qNum < trivia.length) {
+        setTimeout(nextQuestion, 10000);
+    }
 }
 
 function answerBtns() {
-    a.setAttribute("onclick", "answerCheck()");
-    b.setAttribute("onclick", "answerCheck()");
-    c.setAttribute("onclick", "answerCheck()");
-    d.setAttribute("onclick", "answerCheck()");
+    a.setAttribute("onclick", "answerSelect(this.id)");
+    b.setAttribute("onclick", "answerSelect(this.id)");
+    c.setAttribute("onclick", "answerSelect(this.id)");
+    d.setAttribute("onclick", "answerSelect(this.id)");
+
+}
+function nextQuestion() {
+    qNum++;
+    writeTrivia();
+    answerBtns();
+    choice = "";
 }
 
 function nextButton() {
     nextBtn.on("click", function () {
-        qNum++;
-        writeTrivia();
-        answerBtns();
+        if (qNum === 0) {
+            nextQuestion();
+        } else {
+            if (choice === correctAns) {
+                correctCount++;
+                console.log(correctCount);
+                nextQuestion();
+                timer();
+            }
+            else if (choice === "") {
+                alert("Please select answer")
+            }
+            else {
+                wrongCount++;
+                console.log(wrongCount);
+                nextQuestion();
+                timer();
+            }
+        }
     });
 }
 
 function triviaInit() {
     writeTrivia();
     nextButton();
+    timer();
 }
 
 triviaInit();
