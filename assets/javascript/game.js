@@ -147,8 +147,10 @@ function resetTimer() {
     clearInterval(timeCount);
 }
 function timer() {
-    if (qNum !== 0 || qnum < trivia.length) {
+    if (qNum !== 0 || qNum < trivia.length) {
         timeCount = setInterval(answerCheck, 10000);
+    } else if (qNum >= trivia.length){
+        resetTimer();
     }
 }
 
@@ -169,7 +171,7 @@ function nextQuestion() {
 function answerCheck() {
     if (qNum === 0) {
         nextQuestion();
-    } else {
+    } else if (qNum < trivia.length){
         if (choice === correctAns) {
             alert("Ahhh yeah, baby! You got it right!");
             correctCount++;
